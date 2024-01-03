@@ -6,7 +6,6 @@ interface PostShowProps {
 }
 
 export default async function ShowPost({ postId }: PostShowProps) {
-  await new Promise((resolve) => setTimeout(resolve, 2500));
   const post = await db.post.findUnique({
     where: {
       id: postId,
