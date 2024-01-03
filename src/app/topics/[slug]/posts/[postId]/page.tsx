@@ -1,5 +1,6 @@
 import CommentList from '@/components/comments/comment-list';
 import CreateCommentForm from '@/components/comments/create-comment-form';
+import LoadingShowPost from '@/components/posts/loading-show-post';
 import ShowPost from '@/components/posts/show-post';
 import { fetchCommentsByPostId } from '@/db/queries/comments';
 import paths from '@/paths';
@@ -20,7 +21,7 @@ export default function ShowPostPage({ params }: ShowPostPageProps) {
       <Link className="underline decoration-solid" href={paths.showTopic(slug)}>
         {'< '}Back to {slug}
       </Link>
-      <Suspense fallback={<div>Loading...</div>}>
+      <Suspense fallback={<LoadingShowPost />}>
         <ShowPost postId={postId} />
       </Suspense>
       <CreateCommentForm postId={postId} startOpen />
